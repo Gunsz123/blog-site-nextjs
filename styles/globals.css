@@ -11,3 +11,11 @@
 .section {
 	@apply sm:mt-20 mt-8;
 }
+
+/* .text_gradient {
+	@apply bg-gradient-to-r from-purple to-blue bg-clip-text text-transparent;
+} */
+/* 
+.blue_gradient {
+	@apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+} */

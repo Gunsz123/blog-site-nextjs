@@ -2,8 +2,8 @@
 
 export default function Home() {
 	return (
-		<main>
-      hello
+		<main className="flex flex-col">
+      
 		</main>
 	);
 }

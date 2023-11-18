@@ -8,11 +8,12 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				workSans: ["Work Sans", "Arial", "sans-serif"], 
+				workSans: ["Work Sans", "Arial", "sans-serif"],
 				jakartaSans: ["Plus Jakarta Sans", "Arial", "sans-serif"],
 			},
 			colors: {
 				purple: "#6941C6",
+				blue: "#4B6BFB",
 				lightText: "#1A1A1A",
 				darkText: "#FFFFFF",
 				subTextLight: "#667085",
@@ -22,6 +23,5 @@ module.exports = {
 		},
 	},
 };
-
 
 // Work sans for the titles card title mainly
