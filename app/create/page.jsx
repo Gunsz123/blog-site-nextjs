@@ -1,7 +1,7 @@
 "use client";
 import Form from "@/components/Form";
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const CreateBlog = () => {
 	const { data: session } = useSession();
@@ -9,6 +9,7 @@ const CreateBlog = () => {
 	const [post, setPost] = useState({
 		blog: "",
 		tag: "",
+		images: [],
 	});
 
 	const createBlog = async (e) => {
@@ -21,6 +22,7 @@ const CreateBlog = () => {
 				body: JSON.stringify({
 					blog: post.blog,
 					tag: post.tag,
+					images: post.images,
 					userId: session?.user.id,
 				}),
 			});

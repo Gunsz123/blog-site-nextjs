@@ -13,6 +13,10 @@ const BlogSchema = new Schema({
 		type: String,
 		required: [true, "Tag is required"],
 	},
+	images: {
+		type: [String],
+		default: [],
+	},
 });
 
 const Blog = models.Blog || model("Blog", BlogSchema);

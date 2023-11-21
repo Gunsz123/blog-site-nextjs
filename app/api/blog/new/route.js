@@ -2,7 +2,7 @@ import Blog from "@/models/blog";
 import { connectToDB } from "@/utils/database";
 
 export const POST = async (request) => {
-	const { blog, tag, userId } = await request.json();
+	const { blog, tag, userId, images } = await request.json();
 
 	try {
 		await connectToDB();
@@ -11,6 +11,7 @@ export const POST = async (request) => {
 			creator: userId,
 			blog,
 			tag,
+			images,
 		});
 
 		await newBlog.save();
