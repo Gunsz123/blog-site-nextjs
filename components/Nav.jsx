@@ -11,6 +11,7 @@ const Nav = () => {
 		{ name: "Home", href: "/" },
 		{ name: "Create", href: "/create" },
 		{ name: "Profile", href: "/profile" },
+		{ name: "Blog", href: "/blog" },
 	];
 	const pathname = usePathname();
 	const { data: session } = useSession();
@@ -31,24 +32,20 @@ const Nav = () => {
 				<Image src="/assets/Union.png" width={36} height={36} className="" />
 			</Link>
 
-			{/* <form action="" className="bg-[#242535] flex items-center py-2 rounded-lg font-jakartaSans px-4">
-				<input type="text" className=" bg-transparent placeholder:text-sm outline-none text-sm" placeholder="Search" />
-			</form> */}
-
 			{session?.user ? (
 				<div className="flex items-center space-x-5 relative">
 					{links.map((link) => (
 						<Link
-							className={`hidden sm:block ${
-								pathname === link.href
-									? "text-subTextDark border-b border-subTextDark"
+							key={link.name}
+							href={link.href}
+							className={`hidden sm:block border border-transparent hover:text-purple hover:border-b hover:border-b-purple transition-all ${
+								// Check if the current path exactly matches the link's href
+								pathname === link.href || pathname.startsWith(`${link.href}/`)
+									? "text-purple border-b border-b-purple"
 									: ""
 							}`}
-							href={link.href}
-							key={link.name}
 						>
-							{" "}
-							{link.name}{" "}
+							{link.name}
 						</Link>
 					))}
 					<button

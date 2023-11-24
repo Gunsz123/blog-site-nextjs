@@ -5,6 +5,10 @@ const BlogSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: "User",
 	},
+	title: {
+		type: String,
+		required: [true, "Title is required"],
+	},
 	blog: {
 		type: String,
 		required: [true, "Blog is required"],

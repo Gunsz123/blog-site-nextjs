@@ -1,3 +1,4 @@
+
 const Form = ({ title, handleSubmit, post, setPost, submitting }) => {
 	const handleInputChange = (e) => {
 		setPost((prevPost) => ({ ...prevPost, blog: e.target.value }));
@@ -29,6 +30,15 @@ const Form = ({ title, handleSubmit, post, setPost, submitting }) => {
 				action=""
 				className="flex flex-col flex-1 "
 			>
+				<input
+					onChange={(e) =>
+						setPost((prevPost) => ({ ...prevPost, title: e.target.value }))
+					}
+					value={post.title}
+					type="text"
+					className="input"
+					placeholder="Add Title"
+				/>
 				<div className="relative">
 					<textarea
 						value={post.blog}
@@ -57,13 +67,10 @@ const Form = ({ title, handleSubmit, post, setPost, submitting }) => {
 					}
 					value={post.tag}
 					type="text"
-					className=" outline-none font-workSans p-2 mt-3 w-[75vw]  bg-[#242535] rounded-lg"
+					className="input"
 					placeholder="Add tag"
 				/>
-				<button
-					type="submit"
-					className=" w-fit ml-auto mt-3 py-1 px-4 rounded-full border"
-				>
+				<button type="submit" className=" text-center w-fit ml-auto mt-3 btn">
 					{submitting ? `${title}...` : title}
 				</button>
 			</form>

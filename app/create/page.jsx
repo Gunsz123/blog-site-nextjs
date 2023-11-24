@@ -1,15 +1,18 @@
 "use client";
 import Form from "@/components/Form";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const CreateBlog = () => {
 	const { data: session } = useSession();
+  const router = useRouter()
 	const [submitting, setSubmitting] = useState(false);
 	const [post, setPost] = useState({
 		blog: "",
 		tag: "",
 		images: [],
+		title: "",
 	});
 
 	const createBlog = async (e) => {
@@ -24,6 +27,7 @@ const CreateBlog = () => {
 					tag: post.tag,
 					images: post.images,
 					userId: session?.user.id,
+					title: post.title,
 				}),
 			});
 		} catch (error) {
@@ -35,7 +39,11 @@ const CreateBlog = () => {
 		setPost({
 			blog: "",
 			tag: "",
+			title: "",
+			images: [],
 		});
+
+    router.push('/')
 	};
 	return (
 		<section className=" flex flex-col mt-10">
